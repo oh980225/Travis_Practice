@@ -11,9 +11,6 @@ cache:
     - '$HOME/.m2/repository'
     - '$HOME/.gradle'
 
-before_install:
-  - chmod +x gradlew
-
 script:
   - jdk_switcher use openjdk10
   - wget https://github.com/sormuras/bach/raw/master/install-jdk.sh
@@ -21,6 +18,10 @@ script:
   - export JAVA_HOME=$HOME/jdk17
   - $TRAVIS_BUILD_DIR/install-jdk.sh -F 17 --target $JAVA_HOME
   - ./gradlew clean build
+
+before_install:
+  - chmod +x gradlew
+
 
 # CI 실행 완료 시 메일로 알람
 notifications:
