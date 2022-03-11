@@ -10,12 +10,10 @@ cache:
     - '$HOME/.m2/repository'
     - '$HOME/.gradle'
 
-jdk: openjdk-ea
-script:
-  - java --version
-  - ./gradlew clean build
-
 before_install:
+  - wget https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.rpm
+  - rpm -ivh jdk-17_linux-x64_bin.rpm
+  - java -version
   - chmod +x gradlew
 
 
