@@ -1,5 +1,5 @@
 language: java
-jdk: openjdk10
+
 
 branches:
   only:
@@ -11,12 +11,15 @@ cache:
     - '$HOME/.m2/repository'
     - '$HOME/.gradle'
 
+jdk: openjdk10
 script:
   - jdk_switcher use openjdk10
+  - # do stuff with OpenJDK 10
   - wget https://github.com/sormuras/bach/raw/master/install-jdk.sh
   - chmod +x $TRAVIS_BUILD_DIR/install-jdk.sh
-  - export JAVA_HOME=$HOME/jdk17
-  - $TRAVIS_BUILD_DIR/install-jdk.sh -F 17 --target $JAVA_HOME
+  - export JAVA_HOME=$HOME/openjdk11
+  - $TRAVIS_BUILD_DIR/install-jdk.sh -F 11 --target $JAVA_HOME
+  - # do stuff with open OpenJDK 11
   - ./gradlew clean build
 
 before_install:
