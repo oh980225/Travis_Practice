@@ -27,7 +27,7 @@ script:
 
 before_deploy:
   - zip -r travis-test ./*
-  - mkdir deploy
+#  - mkdir deploy
   - mv travis-test.zip deploy/travis-test.zip
 
 deploy:
