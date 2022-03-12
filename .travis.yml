@@ -13,14 +13,10 @@ cache:
 before_install:
   - wget https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.tar.gz
   - tar xvzf jdk-17_linux-x64_bin.tar.gz
-  - ls
+  - rm -r jdk-17_linux-x64_bin.tar.gz
   - mv ./jdk-17.0.2 $HOME/jdk-17.0.2
-  - ls $HOME
-  - echo $HOME
   - export JAVA_HOME=$HOME/jdk-17.0.2
-  - echo $JAVA_HOME
   - export PATH=$PATH:$JAVA_HOME/bin
-  - java -version
 
 script:
   - ./gradlew clean build
