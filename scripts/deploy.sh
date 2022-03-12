@@ -4,7 +4,7 @@ REPOSITORY=/home/ec2-user/app/travis
 PROJECT_NAME=travis
 
 echo "> Build 파일 복사"
-cp $REPOSITORY/build/build/libs/*.jar $REPOSITORY/jar
+cp -R `ls $REPOSITORY/build/build/libs | grep -v plain` $REPOSITORY/jar
 
 echo "> 현재 구동 중인 애플리케이션 pid 확인"
 
