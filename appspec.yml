@@ -15,4 +15,4 @@ hooks:
   AfterInstall: # 배포가 끝나면 아래 실행
     - location: execute-deploy.sh
       timeout: 180
-      runas: ec-user
+      runas: ec2-user
