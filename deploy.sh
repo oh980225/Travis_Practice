@@ -4,7 +4,7 @@ REPOSITORY=/home/ec2-user/app/travis
 
 echo "> 현재 구동중인 애플리케이션 pid 확인"
 
-CURRENT_PID=$(pgrep -f travis)
+CURRENT_PID=$(pgrep travis)
 
 echo "$CURRENT_PID"
 
@@ -27,4 +27,4 @@ Date=$(date "+%Y-%m-%d")
 
 echo "> JAR Name: $JAR_NAME"
 
-nohup java -jar $REPOSITORY/jar/$JAR_NAME > monit/$Date.out  &
+nohup java -jar $REPOSITORY/jar/$JAR_NAME > monit/$Date.out &
