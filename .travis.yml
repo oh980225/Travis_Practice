@@ -35,7 +35,7 @@ deploy:
     bucket: my-travis-test
     region: ap-northeast-2
     skip_cleanup: true
-    acl: private
+    acl: public_read
     local_dir: deploy
     wait_until_deployed: true
 
