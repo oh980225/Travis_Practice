@@ -5,7 +5,8 @@ PROJECT_NAME=travis
 JAR_FILE=$(ls /home/ec2-user/app/travis/build/build/libs | grep -v plain)
 
 echo "> Build 파일 복사"
-cp $REPOSITORY/build/build/libs/$JAR_FILE $REPOSITORY/jar
+#절대 경로 사용
+/usr/bin/cp -f $REPOSITORY/build/build/libs/$JAR_FILE $REPOSITORY/jar
 
 echo "> 현재 구동 중인 애플리케이션 pid 확인"
 
@@ -31,6 +32,7 @@ chmod +x $JAR_NAME
 
 echo "> $JAR_NAME 실행"
 
+#절대 경로 사용
 nohup ~/jdk-17.0.2/bin/java -jar \
     -Dspring.profiles.active=real \
     $JAR_NAME > $REPOSITORY/monit/nohup.out 2>&1 &
