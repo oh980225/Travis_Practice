@@ -25,14 +25,13 @@ fi
 echo "> 새 애플리케이션 배포"
 
 JAR_NAME=$(ls -tr $REPOSITORY/jar/*.jar | tail -n 1)
-
+Date=$(date "+%Y-%m-%d")
 echo "> JAR name: JAR_NAME"
 echo "> $JAR_NAME에 실행 권한 추가"
 chmod +x $JAR_NAME
 
-echo "> $JAR_NAME 실행"
+echo ">$JAR_NAME 실행"
 
 #절대 경로 사용
-nohup ~/jdk-17.0.2/bin/java -jar \
-    -Dspring.profiles.active=real \
-    $JAR_NAME > $REPOSITORY/monit/nohup.out 2>&1 &
+#2>&1 -> .out파일에 stderr(에러 메시지)도 저장되도록!
+nohup ~/jdk-17.0.2/bin/java -jar $JAR_NAME > $REPOSITORY/monit/$Date.out 2>&1 &
