@@ -49,8 +49,8 @@ deploy:
     bucket: my-travis-test
     key: travis-test.zip
     bundle_type: zip
-    application: travis-test
-    deployment_group: travis-test-group
+    application: travis-deploy
+    deployment_group: travis-deploy-group
     region: ap-northeast-2
     wait-until-deployed: true
 
