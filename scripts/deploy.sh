@@ -1,4 +1,6 @@
 #!/bin/bash
+export JAVA_HOME=$HOME/jdk-17.0.2
+export PATH=$PATH:$JAVA_HOME/bin
 
 REPOSITORY=/home/ec2-user/app
 PROJECT_NAME=travis
